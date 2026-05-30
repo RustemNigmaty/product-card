@@ -1,0 +1,61 @@
+@import url('https://googleapis.com');
+
+* {
+  box-sizing: border-box; /* Устанавливаем box-sizing для всех элементов, чтобы padding и border не влияли на общую ширину и высоту элемента */
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: #515076;
+  margin: 0;
+  padding: 0;
+  line-height: 18px;
+}
+
+.title {
+  text-align: center; /* Центрирование текста по горизонтали */
+  margin-top: 220px;
+  margin-left: 217px;
+  margin-right: 217px;
+  margin-bottom: 81px;
+  font-size: 70px;
+  font-weight: 400;
+  line-height: 78px;
+}
+
+.product-list {
+  display: flex; /* Используем flexbox для расположения карточек в ряд */
+  justify-content: center; /* Центрируем карточки по горизонтали */
+  flex-wrap: wrap; /* Разрешаем перенос строк */
+  list-style: none; /* убрали стиль списка */
+  gap: 45px; /* Отступы между карточками */
+  margin: 0 auto; /* Центрируем сам контейнер на странице */
+  padding: 0;
+  width: (340 * 3 + 45 * 2)px; /* Устанавливаем фиксированную ширину для контейнера */
+}
+
+.product-card {
+  background-color: #f8f8f8;
+  padding: 25px;
+  margin: 45px;
+  width: 340px;
+}
+
+.product-description {
+  font-size: 12px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.composition {
+  padding-left: 15px;
+}
+
+.price-box {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+  font-size: 20px;
+}
