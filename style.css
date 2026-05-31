@@ -1,5 +1,3 @@
-@import url('https://googleapis.com');
-
 * {
   box-sizing: border-box; /* Устанавливаем box-sizing для всех элементов, чтобы padding и border не влияли на общую ширину и высоту элемента */
 }
@@ -17,8 +15,6 @@ body {
 .title {
   text-align: center; /* Центрирование текста по горизонтали */
   margin-top: 220px;
-  margin-left: 217px;
-  margin-right: 217px;
   margin-bottom: 81px;
   font-size: 70px;
   font-weight: 400;
