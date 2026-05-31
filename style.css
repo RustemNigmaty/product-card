@@ -33,7 +33,6 @@ body {
   gap: 45px; /* Отступы между карточками */
   margin: 0 auto; /* Центрируем сам контейнер на странице */
   padding: 0;
-  width: (340 * 3 + 45 * 2)px; /* Устанавливаем фиксированную ширину для контейнера */
 }
 
 .product-card {
@@ -47,8 +46,12 @@ body {
   font-size: 12px;
   margin-top: 15px;
   margin-bottom: 15px;
+  color: #A5A3B9;
 }
 
+.product-name {
+  font-size: 20px;
+}
 .composition {
   padding-left: 15px;
 }
