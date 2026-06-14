@@ -10,6 +10,9 @@ body {
   margin: 0;
   padding: 0;
   line-height: 18px;
+  background-image: url('images/bg-1.png');
+  background-repeat: no-repeat;
+  background-position: 85px 0;
 }
 
 .title {
@@ -34,7 +37,6 @@ body {
 .product-card {
   background-color: #f8f8f8;
   padding: 25px;
-  margin: 45px;
   width: 340px;
 }
 
@@ -43,16 +45,18 @@ body {
   margin-top: 15px;
   margin-bottom: 15px;
   color: #A5A3B9;
+  text-transform: uppercase;
 }
 
 .product-name {
   font-size: 20px;
 }
-.composition {
+
+.product-composition {
   padding-left: 15px;
 }
 
-.price-box {
+.product-price-box {
   display: flex;
   justify-content: space-between;
   margin-top: 25px;
