@@ -62,7 +62,7 @@ const pageTitle = document.querySelector('.title');
 // 2. Вешаем на заголовок слушатель события наведения мыши
 pageTitle.addEventListener('mouseover', function() {
   // 3. Читаем текст заголовка и выводим его в консоль
-  console.log(event.target.textContent);
+  console.log(pageTitle.textContent);
 });
 
 // 1. Находим кнопку по классу btn-toggle
