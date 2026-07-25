@@ -2,7 +2,7 @@
 Имя, фамилия, почта, работа, должность, возраст, страна, город, статус отношений и так далее. 
 Чем больше - тем лучше (но не увлекайтесь, до 10 максимум). 
 Подберите правильное название для переменной.*/
-let user = {
+const user = {
   firstName: "Rustam",
   lastName: "Nigmati",
   email: "nigmatir@gmail.com",
@@ -37,9 +37,9 @@ console.log(car);
 Она проверяет, есть ли в объекте свойство "максимальная скорость", если нет - добавляет его и задает значение, 
 если есть - прекращает выполнение (ничего не делает) */
 
-function checkMaxSpeed(Object) {
-  if (!Object.hasOwnProperty("maxSpeed")) {
-    Object.maxSpeed = 196;
+function checkMaxSpeed(object) {
+  if (!object.hasOwnProperty("maxSpeed")) {
+    object.maxSpeed = 196;
   }
 }
 
@@ -47,12 +47,12 @@ checkMaxSpeed(car);
 
 // Дополнил ф-цию по результатам созвона от 22.07.
 
-function checkMinMaxSpeed(Object) {
-  if (!Object.hasOwnProperty("minSpeed")) {
-    Object.minSpeed = 0;
+function checkMinMaxSpeed(object) {
+  if (!object.hasOwnProperty("minSpeed")) {
+    object.minSpeed = 0;
   };
-  if (!Object.hasOwnProperty("maxSpeed")) {
-  Object.maxSpeed = 196;
+  if (!object.hasOwnProperty("maxSpeed")) {
+    object.maxSpeed = 196;
   }
 }
 
@@ -61,12 +61,12 @@ checkMinMaxSpeed(car);
 /* 6. Написать функцию, которая получает первым аргументом — объект, а вторым аргументом — свойство объекта, 
 которое нужно вывести и выводит его значение.*/
 
-function printProperty(Object, key) {
-  console.log(Object[key])
+function printProperty(object, key) {
+  console.log(object[key])
 }
 
-printProperty(car, 'model') // Пример 1
-printProperty(user, 'firstName') // Пример 2
+printProperty(car, 'model'); // Пример 1
+printProperty(user, 'firstName'); // Пример 2
 
 /* 7. Создать массив, который содержит названия продуктов (просто строки). */
 
@@ -126,15 +126,10 @@ console.log(allBooks);
 (или какой-то логики, связанной с вашей сущностью), устанавливаем true или false. 
 Что я хочу этим сказать: если книга выпущена позже 2000 года, устанавливаем true (да, это редкий), нет - false (значит это не редкий).*/
 
-function addIsRareProperty(books) {
-  return books.map(book => {
-    if (book.year <= 250) {
-      book.isRare = true; 
-    } else {
-      book.isRare = false;
-    }
-    return book;
-  });
-}
+const addIsRareProperty = books => books.map(book => ({...book,
+  isRare: book.year <= 250
+}));
 
-addIsRareProperty(allBooks);
+const updatedBooks = addIsRareProperty(allBooks);
+
+console.log(updatedBooks);
