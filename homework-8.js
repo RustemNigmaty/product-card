@@ -126,7 +126,8 @@ console.log(allBooks);
 (или какой-то логики, связанной с вашей сущностью), устанавливаем true или false. 
 Что я хочу этим сказать: если книга выпущена позже 2000 года, устанавливаем true (да, это редкий), нет - false (значит это не редкий).*/
 
-const addIsRareProperty = books => books.map(book => ({...book,
+const addIsRareProperty = books => books.map(book => ({
+  ...book,
   isRare: book.year <= 250
 }));
 
