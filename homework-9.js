@@ -31,8 +31,7 @@ console.log(furnitureList.includes("табурет"), "массив не сод�
 Два вышеуказанных массива с помощью этой функции перевернуть.*/
 
 const reverseArray = (array) => {
-  const reversedArray = array.reverse();
-  return reversedArray;
+  return array.reverse();
 };
 
 console.log(reverseArray(numbers), "перевернутый массив чисел от 10 до 1");
@@ -49,11 +48,10 @@ console.log(dotComComments, "массив комментариев, почта �
 /* 8. Перебрать массив таким образом, что бы пользователи с id меньше или равно 5 имели postId: 2, 
 а те, у кого id больше 5, имели postId: 1*/
 
-const updatedComments = comments.map((comment) => {
-  return comment.id <= 5
-    ? { ...comment, postId: 2 }
-    : { ...comment, postId: 1 };
-});
+const updatedComments = comments.map((comment) => ({
+  ...comment,
+  postId: comment.id <= 5 ? 2 : 1
+}));
 
 console.log(updatedComments, "измененный массив комментариев");
 
@@ -71,7 +69,7 @@ console.log(idNameComments, "массив из айди и имени");
 /* 10. Перебираем массив, добавляем объектам свойство isInvalid и проверяем: 
 если длина тела сообщения (body) больше 180 символов - устанавливаем true, меньше - false.*/
 
-const addIsInvalidComments = comments.map((comment) => {
+const commentsWithIsInvalid = comments.map((comment) => {
   return {
     ...comment,
     isInvalid: comment.body.length > 180,
@@ -79,7 +77,7 @@ const addIsInvalidComments = comments.map((comment) => {
 });
 
 console.log(
-  addIsInvalidComments,
+  commentsWithIsInvalid,
   "массив комментариев с добавленным свойством isInvalid",
 );
 
