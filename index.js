@@ -1,31 +1,3 @@
-// Создаем коробочку firstCard и кладем туда первую найденную карточку
-const firstCard = document.querySelector('.product-card');
-
-// 1. Находим кнопку по классу btn-color
-const btnColor = document.querySelector('.btn-color');
-
-// 2. Вешаем на кнопку слушатель события клик
-btnColor.addEventListener('click', function() {
-  // 3. Внутри функции обработчика события меняем цвет первой карточки на красный
-  fistCard.style.backgroundColor = 'red';
-  console.log('Кнопка была нажата, цвет первой карточки изменен на красный');
-});
-
-// 1. Находим все карточки по классу product-card
-const allCards = document.querySelectorAll('.product-card');
-
-// 2. Находим кнопку по классу btn-color-all
-const btnColorAll = document.querySelector('.btn-color-all');
-
-// 3. Вешаем на кнопку слушатель события клик
-btnColorAll.addEventListener('click', function() {
-  // 4. Внутри функции обработчика события меняем цвет всех карточек на синий
-  allCards.forEach(function(card) {
-    card.style.backgroundColor = 'lightblue';
-  });
-  console.log('Кнопка была нажата, цвет всех карточек изменен на светло-голубой');
-});
-
 // 1. Пишем функцию для вопроса и открытия Google в новой вкладке
 function askAndOpenGoogle() {
   // Задаем вопрос пользователю
