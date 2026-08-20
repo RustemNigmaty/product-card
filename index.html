@@ -1,51 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <title>Каталог товаров</title>
-</head>
-<body>
-  <div class="container">
-    <h1 class="title">Выбери свой продукт</h1>
-    <button class="btn-color">Покрасить первую карточку</button>
-    <button class="btn-color-all">Покрасить все карточки</button>
-    <button class="btn-google">Поискать в Google</button>
-    <button class="btn-message">Показать сообщение</button>
-    <button class="btn-toggle">Кнопка переключения</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Каталог товаров</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">Выбери свой продукт</h1>
+      <button class="btn-color">Покрасить первую карточку</button>
+      <button class="btn-color-all">Покрасить все карточки</button>
+      <button class="btn-google">Поискать в Google</button>
+      <button class="btn-message">Показать сообщение</button>
+      <button class="btn-toggle">Кнопка переключения</button>
 
-<!-- 3.По аналогии из лекции — создать и реализовать шаблон для продуктовых карточек. (Посмотрите сразу задание 5) -->
+      <!-- 3.По аналогии из лекции — создать и реализовать шаблон для продуктовых карточек. (Посмотрите сразу задание 5) -->
 
-    <ul class="product-list"></ul>
+      <ul class="product-list"></ul>
 
-    <template id="product-card-template">
-      <li class="product-list__card product-card">
-        <img class="product-card__image" src="product.src" alt="product.alt" width="290">
-        <p class="product-card__description"></p>
-        <h2 class="product-card__name"></h2>
-        <p class="product-card__text"></p>
-        <span>Состав:</span>
-        <ul class="product-card__composition">
-          <li class="product-card__composition1"></li>
-          <li class="product-card__composition2"></li>
-          <li class="product-card__composition3"></li>
-        </ul>
-        <div class="product-card__price-box">
-          <b>Цена</b>
-          <span class="product-card__price"></span>
-        </div>
-      </li>
-    </template>
-
-  </div>
-<script src="index.js"></script>
-<script src="homework-7.js"></script>
-<script src="homework-8.js"></script>
-<script type="module" src="homework-9.js"></script>
-<script type="module" src="homework-10.js"></script>
-</body>
+      <template id="product-card-template">
+        <li class="product-list__card product-card">
+          <img
+            class="product-card__image"
+            src="product.src"
+            alt="product.alt"
+            width="290"
+          />
+          <p class="product-card__description"></p>
+          <h2 class="product-card__name"></h2>
+          <p class="product-card__text"></p>
+          <span>Состав:</span>
+          <ul class="product-card__composition"></ul>
+          <div class="product-card__price-box">
+            <b>Цена</b>
+            <span class="product-card__price"></span>
+          </div>
+        </li>
+      </template>
+    </div>
+    <script src="index.js"></script>
+    <script src="homework-7.js"></script>
+    <script src="homework-8.js"></script>
+    <script type="module" src="homework-9.js"></script>
+    <script type="module" src="homework-10.js"></script>
+  </body>
 </html>

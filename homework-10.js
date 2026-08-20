@@ -35,20 +35,29 @@ function getCardCount() {
 
 const cardCount = getCardCount()
 
-products.slice(0, cardCount).forEach((product) => {
-  const productClone = productCardTemplate.content.cloneNode(true);
-  productClone.querySelector(".product-card__image").src = product.src;
-  productClone.querySelector(".product-card__image").alt = product.alt;
-  productClone.querySelector(".product-card__description").textContent = product.description;
-  productClone.querySelector(".product-card__name").textContent = product.name;
-  productClone.querySelector(".product-card__text").textContent = product.text;
-  productClone.querySelector(".product-card__composition1").textContent = product.composition1;
-  productClone.querySelector(".product-card__composition2").textContent = product.composition2;
-  productClone.querySelector(".product-card__composition3").textContent = product.composition3;
-  productClone.querySelector(".product-card__price").textContent = product.price;
-  productList.append(productClone);
-  console.log(productList);
-});
+function renderProducts(items, count) {
+  items.slice(0, count).forEach((product) => {
+    const productClone = productCardTemplate.content.cloneNode(true);
+    productClone.querySelector(".product-card__image").src = product.src;
+    productClone.querySelector(".product-card__image").alt = product.alt;
+    productClone.querySelector(".product-card__description").textContent = product.description;
+    productClone.querySelector(".product-card__name").textContent = product.name;
+    productClone.querySelector(".product-card__text").textContent = product.text;
+    productClone.querySelector(".product-card__price").textContent = product.price;
+    const compositionContainer = productClone.querySelector(".product-card__composition");
+
+    product.composition.forEach((ingredient) => {
+      const ingredientElement = document.createElement("li");
+      ingredientElement.textContent = ingredient;
+      compositionContainer.appendChild(ingredientElement);
+    });
+
+    productList.append(productClone);
+  });
+}
+
+renderProducts(products, cardCount);
+console.log(productList);
 
 //1. Кнопка перекрашивания первой карточки
 const firstCard = document.querySelector(".product-card");
