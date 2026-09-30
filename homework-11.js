@@ -3,26 +3,25 @@
 // 3. Сверстать данный footer, используя семантические теги (footer, nav и т.д.)
 // 4. К Форме, которая прикреплена в футере - добавить логику:
 document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('subscribeForm');
-  const emailInput = document.getElementById('subscribeEmail');
+  const subscribeForm = document.getElementById('subscribeForm');
+  const subscribeEmailInput = document.getElementById('subscribeEmail');
 
 // Кнопка "Подписаться" и есть "отправка формы"
-  form.addEventListener('submit', (event) => {
+  subscribeForm.addEventListener('submit', (event) => {
     event.preventDefault();// Отменяем перезагрузку страницы при отправке формы
-    const emailValue = emailInput.value.trim();// Получаем значение из инпута и убираем лишние пробелы по краям
+    const emailValue = subscribeEmailInput.value.trim();// Получаем значение из инпута и убираем лишние пробелы по краям
 
 // если email не заполнен - форма не отправляется.
     if (!emailValue) {
       alert('Пожалуйста, заполните поле Email.');
-      emailInput.focus();
+      subscribeEmailInput.focus();
       return;
     }
 
 // email должен соответствовать стандартам (добавить валидацию),
-    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!emailPattern.test(emailValue)) {
+    if (subscribeEmailInput.validity.typeMismatch) {
       alert('Введенный Email не соответствует стандарту (например, user@example.com).');
-      emailInput.focus();
+      subscribeEmailInput.focus();
       return;
     }
 // Кнопка "Подписаться" и есть "отправка формы", при нажатии на которую мы будем выводить консоль лог в виде объекта: { email: 'введенная почта' }
@@ -30,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
       email: emailValue
     };
     console.log(result);
-    form.reset();
+    subscribeForm.reset();
   });
 });
 
@@ -65,21 +64,29 @@ overlay.addEventListener('click', (event) => {
 form.addEventListener('submit', (event) => {
   event.preventDefault(); // Предотвращаем перезагрузку страницы
 
-  const firstName = document.getElementById('reg-firstname').value.trim();
-  const lastName = document.getElementById('reg-lastname').value.trim();
-  const dob = document.getElementById('reg-dob').value;
-  const login = document.getElementById('reg-login').value.trim();
-  const password = document.getElementById('reg-password').value;
-  const confirmPassword = document.getElementById('reg-confirm-password').value;
+  const formData = new FormData(form);
+  const formProps = Object.fromEntries(formData.entries());
+  
+  for (let key in formProps) {
+    if (typeof formProps[key] === 'string') {
+      formProps[key] = formProps[key].trim();
+    }
+  }
+  
+  const emailInput = document.getElementById('reg-email');
+  if (emailInput.validity.typeMismatch) {
+    alert("Регистрация отклонена: Введен некорректный формат Email.");
+    return;
+  }
 
 //Проверка длины пароля (минимум 10 символов)
-if (password.length < 10) {
+if (formProps.password.length < 10) {
     alert("Регистрация отклонена: Пароль слишком короткий! Минимальная длина — 10 символов.");
     return;
   }
 
   //Если пользователь ввел два разных пароля 
-  if (password !== confirmPassword) {
+  if (formProps.password !== formProps["confirm-password"]) {
     alert("Регистрация отклонена: Пароли не совпадают!");
     return;
   }
@@ -93,11 +100,7 @@ if (password.length < 10) {
 // и указать туда время создания (используем сущность new Date()).
 //Также создайте внешнюю переменную user и присвойте ей этот объект. 
   user = {
-    firstName: firstName,
-    lastName: lastName,
-    dateOfBirth: dob,
-    login: login,
-    password: password,
+    ...formProps,
     createdOn: new Date()
   };
 
