@@ -1,23 +1,49 @@
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box; /* Устанавливаем box-sizing для всех элементов, чтобы padding и border не влияли на общую ширину и высоту элемента */
 }
 
+button {
+  padding: 5px 10px;
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+input {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  outline: none;
+}
+
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 13px;
   color: #515076;
   margin: 0;
   padding: 0;
   line-height: 18px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .container {
   margin: 0 auto;
   max-width: 1110px;
-  background-image: url('images/bg-1.png');
+  background-image: url("images/bg-1.png");
   background-repeat: no-repeat;
   background-position: 0 0;
+  flex: 1 0 auto;
 }
 
 .title {
@@ -51,7 +77,7 @@ body {
   font-size: 12px;
   margin-top: 15px;
   margin-bottom: 15px;
-  color: #A5A3B9;
+  color: #a5a3b9;
   text-transform: uppercase;
 }
 
@@ -72,6 +98,302 @@ body {
 
 /* Это новый класс. По умолчанию его нет на кнопке. Он добавляется при клике на кнопку и меняет цвет кнопки на синий. */
 .active-color {
-  background-color: #0000FF; /* Синий цвет фона */
-  color: #FFFFFF; /* Белый цвет текста */
-} 
+  background-color: #0000ff; /* Синий цвет фона */
+  color: #ffffff; /* Белый цвет текста */
+}
+
+.footer {
+  background-color: #3a3a3a;
+  color: #ffffff;
+  padding: 92px 75px 28px 84px;
+  flex-shrink: 0;
+}
+
+.footer__grid {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+
+.footer__col {
+  flex: 1;
+  min-width: 350px;
+}
+
+.footer__col--left {
+  text-align: left;
+  text-transform: capitalize;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__col-title-left {
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.footer__col-text {
+  font-size: 18px;
+  margin: 0;
+}
+
+.footer__socials {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.footer__social-link {
+  display: inline-flex;
+  text-decoration: none;
+}
+.footer__social-icon {
+  color: #ffffff;
+  transition: filter 0.2s ease;
+
+  .footer__social-link:hover & {
+    filter: drop-shadow(0px 0px 2px #2480ef) drop-shadow(0px 0px 1px #2480ef);
+  }
+}
+
+.footer__col--center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 477px;
+}
+
+.footer__col-title-center {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.subscribe-form {
+  display: flex;
+  border-radius: 10px;
+  background-color: white;
+  padding: 22px 22px 22px 36px;
+  font-weight: 500;
+  color: #000000;
+}
+
+.subscribe-form__field {
+  flex-grow: 1;
+  display: flex;
+  padding-right: 20px;
+}
+
+.subscribe-form__input {
+  width: 100%;
+  font-size: 14px;
+}
+
+.subscribe-form__input::placeholder {
+  color: rgb(0 0 0 / 75%);
+}
+
+.subscribe-form__input:focus {
+  outline: none;
+  border-color: #2480ef;
+  box-shadow: 0 0 0 3px rgb(36 128 239 / 15%);
+}
+
+.subscribe-form__btn {
+  padding-left: 21px;
+  border-left: 1px solid #000;
+  font-size: 18px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.subscribe-form__btn:hover {
+  background-color: #1a6fd3;
+}
+
+.subscribe-form__btn:active {
+  transform: scale(0.98);
+}
+
+.footer__col--right {
+  display: flex;
+}
+
+.footer__col-title-wrapper {
+  margin-left: auto;
+}
+
+.footer__col-title-right {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.footer__menu {
+  margin-top: 16px;
+}
+
+.footer__menu-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+
+.footer__menu-link {
+  display: inline-block;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+}
+
+.footer__menu-link:hover {
+  color: #2480ef;
+  transform: translateX(4px);
+}
+
+.footer__bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 162px;
+  padding-top: 33px;
+  position: relative;
+}
+
+.footer__bottom::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 66px;
+  height: 1px;
+  background-color: #ffffff;
+}
+
+.footer__copyright {
+  font-size: 18px;
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Базовый сброс маргинов для форм и элементов */
+.form-group, .register-form__title {
+  margin: 0;
+}
+
+/* 1. Задний фон (Overlay) — скрыт по умолчанию */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Полупрозрачный черный цвет */
+  display: flex;
+  justify-content: center; /* Центрирование модалки по горизонтали */
+  align-items: center;     /* Центрирование модалки по вертикали */
+  z-index: 1000;
+  
+  /* Плавное скрытие/появление */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* 2. Класс для отображения модального окна */
+.overlay.modal-showed {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* 3. Само модальное окно */
+.modal {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+}
+
+/* Кнопка закрытия (крестик) в углу */
+.modal__close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #333333;
+}
+
+/* Стилизация формы */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.register-form__title {
+  text-align: center;
+  font-size: 24px;
+  color: #333333;
+  margin-bottom: 5px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #555555;
+}
+
+.form-group input {
+  padding: 10px 12px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: #2480ef;
+}
+
+/* Кнопка отправки */
+.register-form__btn {
+  background-color: #2480ef;
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.register-form__btn:hover {
+  background-color: #1a6fd3;
+}
